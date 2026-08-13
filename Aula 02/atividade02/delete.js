@@ -1,6 +1,6 @@
 const mysql = require ("mysql2");
 
-const conexão = mysql.createConnection({
+const conexao = mysql.createConnection({
     host:"localhost",
     user:"root",
     password:"root",
@@ -15,7 +15,7 @@ const id = 2
 
 const deletar ="DELETE FROM livros WHERE id = ?";
 
-conexão.query(deletar,[id],function(erro,resultado)
+conexao.query(deletar,[id],function(erro,resultado)
 {if(erro){
     console.log("erro ao excluir o livro!");
     console.log(erro);
@@ -26,5 +26,5 @@ conexão.query(deletar,[id],function(erro,resultado)
 }else{
     console.log("livro excluido com sucesso!")
 }
-    conexão.end();
+    conexao.end();
 });

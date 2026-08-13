@@ -1,16 +1,16 @@
 const mysql = require("mysql2");
 
-const conexão = mysql.createConnection({
+const conexao = mysql.createConnection({
 host:"localhost",
 user:"root",
 password:"root",
 database:"empresaf"
 });
-/*
+
 //insert
-const nome = "João" 
-const cargo="Vendedor" 
-const salario = 2500.00;
+//const nome = "João" 
+//const cargo="Vendedor" 
+//const salario = 2500.00;
 
 //const nome="Mariana" ;
 //const cargo = "Gerente";
@@ -20,25 +20,31 @@ const salario = 2500.00;
 //const cargo = "Atendente";
 //const salario = 2200.00;
 
+const nome ="Cris"; 
+const cargo = "Chefa";
+const salario = 4000.00;
+
 const inserir = "INSERT INTO funcionarios(nome,cargo,salario) VALUES(?,?,?)";
 
-conexão.query(inserir,[nome,cargo,salario],function(erro){
+conexao.query(inserir,[nome,cargo,salario],function(erro){
     if(erro){
         console.log("Erro ao cadastrar funcionario!");
         console.log(erro);
     }else{
         console.log("funcionario cadastrado com sucesso!");
     }
-    conexão.end();
-});*/
-
+    conexao.end();
+});
+/*
 //delete
 
 const id = 3 ;
 
-const deletar ="DELETE FROM funcionario WHERE id =?";
+const id = 50;
 
-conexão.query(deletar,[id],function(erro,resultado){
+const deletar ="DELETE FROM funcionarios WHERE id =?";
+
+conexao.query(deletar,[id],function(erro,resultado){
     if(erro){
         console.log("erro ao excluir funcionario!");
         console.log(erro);
@@ -47,5 +53,5 @@ conexão.query(deletar,[id],function(erro,resultado){
             }else{
              console.log("Funcionario excluido com sucesso!");
             }
-        conexão.end();
-});
+        conexao.end();
+});*/

@@ -1,6 +1,6 @@
 const mysql = require("mysql2");
 
-const conexão = mysql.createConnection({
+const conexao = mysql.createConnection({
     host:"localhost",
     user:"root",
     password:"root",
@@ -20,12 +20,12 @@ const carga_horaria= 800;*/
 
 const inserir ="INSERT INTO cursos(nome,carga_horaria) VALUES(?,?)";
 
-conexão.query(inserir,[nome,carga_horaria],function(erro){
+conexao.query(inserir,[nome,carga_horaria],function(erro){
     if(erro){
         console.log("erro ao cadastrar curso!");
         console.log(erro);
     }else{
         console.log("Curso cadastrado com sucesso!");
     }
-    conexão.end();
+    conexao.end();
 });

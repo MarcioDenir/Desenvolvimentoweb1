@@ -1,7 +1,7 @@
 const mysql = require ("mysql2");
 
 //conexão com o MySQL
-const conexão = mysql.createConnection({
+const conexao = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "root",
@@ -18,7 +18,7 @@ const insert = "INSERT INTO produtos(nome,preco) VALUES (?,?)";
 
 //Envia os dados para o MySQL
 
-conexão.query(insert,[nome,preco],function(erro){
+conexao.query(insert,[nome,preco],function(erro){
 
     if(erro){
         console.log("Erro ao cadastrar.");
@@ -26,5 +26,5 @@ conexão.query(insert,[nome,preco],function(erro){
     }else{
         console.log("Produto cadastrado com sucesso!");
     }
-    conexão.end();
+    conexao.end();
 });

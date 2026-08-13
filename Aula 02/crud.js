@@ -1,7 +1,7 @@
 const mysql = require ("mysql2");
 
-//conexão com o MySQL
-const conexão = mysql.createConnection({
+//conexao com o MySQL
+const conexao = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "root",
@@ -18,7 +18,7 @@ const insert = "INSERT INTO alunos(nome,email) VALUES (?,?)";
 
 //Envia os dados para o MySQL
 
-conexão.query(insert,[nome,email],function(erro){
+conexao.query(insert,[nome,email],function(erro){
 
     if(erro){
         console.log("Erro ao cadastrar.");
@@ -26,7 +26,7 @@ conexão.query(insert,[nome,email],function(erro){
     }else{
         console.log("Aluno cadastrado com sucesso!");
     }
-    conexão.end();
+    conexao.end();
 });
 /*
 //id do aluno que sera exluido
@@ -34,7 +34,7 @@ const id = 1;
 
 const deletar = "DELETE FROM alunos WHERE id = ?";
 
-conexão.query(deletar,[id], function(erro,resultado){
+conexao.query(deletar,[id], function(erro,resultado){
     if(erro){
         console.log("Erro ao excluir o aluno.");
         console.log(erro);
@@ -43,5 +43,5 @@ conexão.query(deletar,[id], function(erro,resultado){
         }else{
             console.log("Aluno excluido com sucesso!");
           }
-    conexão.end();
+    conexao.end();
 });*/

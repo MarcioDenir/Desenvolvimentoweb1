@@ -4,22 +4,21 @@ const conexao = mysql.createConnection({
     host:"localhost",
     user:"root",
     password:"root",
-    database:"escola"
+    database:"loja" 
 });
 
-const id = 20;
+const id = 1;
 
-const deletar = "DELETE FROM professores WHERE id = ?"
+const deletar = "DELETE FROM vendas WHERE id = ?"
 
 conexao.query(deletar,[id],function(erro,resultado){
     if(erro){
-        console.log("Erro ao excluir o professor!");
+        console.log("Erro ao excluir venda!");
         console.log(erro);
-
     }else if(resultado.affectedRows === 0){
-        console.log("Professor não encontrado!");
+        console.log("Venda nao encontrada!");
     }else{
-        console.log("Professor excluido com sucesso!");
+        console.log("Venda excluida com sucesso!");
     }
     conexao.end();
 });

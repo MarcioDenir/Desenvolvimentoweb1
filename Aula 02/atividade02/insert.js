@@ -1,6 +1,6 @@
 const mysql = require("mysql2");
 
-const conexão = mysql.createConnection({
+const conexao = mysql.createConnection({
     host:"localhost",
     user:"root",
     password:"root",
@@ -16,7 +16,7 @@ const autor = "Sun Tzu";
 
 const insert ="INSERT INTO LIVROS(titulo,autor) VALUES(?,?)";
 
-conexão.query(insert,[titulo,autor],function(erro){
+conexao.query(insert,[titulo,autor],function(erro){
     if(erro){
         console.log("erro ao cadastrar!")
         console.log(erro)
@@ -24,5 +24,5 @@ conexão.query(insert,[titulo,autor],function(erro){
     }else{
         console.log("livro cadastrado com sucesso!")
     }
-    conexão.end()
+    conexao.end()
 });

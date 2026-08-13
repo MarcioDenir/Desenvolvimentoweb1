@@ -1,6 +1,6 @@
 const mysql = require("mysql2");
 
-const conexão = mysql.createConnection({
+const conexao = mysql.createConnection({
     host:"localhost",
     user:"root",
     password:"root",
@@ -19,14 +19,14 @@ const telefone = "47999990000";
 
 const inserir = "INSERT INTO cliente(nome,telefone) VALUES (?,?)";
 
-conexão.query(inserir,[nome,telefone],function(erro){
+conexao.query(inserir,[nome,telefone],function(erro){
     if(erro){
         console.log("Erro ao cadastrar cliente!");
         console.log(erro);
     }else{
         console.log("Cliente cadastrado com sucesso!");
     }
-    conexão.end();
+    conexao.end();
 });
 
 /*
@@ -35,7 +35,7 @@ conexão.query(inserir,[nome,telefone],function(erro){
 const id = 2;
 const deletar = "DELETE FROM cliente WHERE id = ?";
 
-conexão.query(deletar,[id],function(erro,resultado){
+conexao.query(deletar,[id],function(erro,resultado){
     if(erro){
         console.log("Erro ao excluir cliente");
         console.log(erro);
@@ -44,6 +44,6 @@ conexão.query(deletar,[id],function(erro,resultado){
     }else{
         console.log("cliente excluido com sucesso");
     }
-    conexão.end();
+    conexao.end();
 
 });*/

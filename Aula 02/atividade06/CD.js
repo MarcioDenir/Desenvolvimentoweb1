@@ -1,6 +1,6 @@
 const mysql = require("mysql2");
 
-const conexão = mysql.createConnection({
+const conexao = mysql.createConnection({
     host:"localhost",
     user:"root",
     password:"root",
@@ -23,14 +23,14 @@ const ano = 1980;
 
 const inserir = "INSERT INTO filmes(titulo,ano) VALUES (?,?)";
 
-conexão.query(inserir,[titulo,ano],function(erro){
+conexao.query(inserir,[titulo,ano],function(erro){
     if(erro){
         console.log("erro ao cadastar Filme!");
         console.log(erro);
     }else{
         console.log("Filme cadastrado com sucesso!");
     }
-    conexão.end();
+    conexao.end();
 });
 /*
 //delete
@@ -39,7 +39,7 @@ const id = 2;
 
 const deletar = "DELETE FROM filmes WHERE id = ?";
 
-conexão.query(deletar,[id],function(erro,resultado){
+conexao.query(deletar,[id],function(erro,resultado){
     if(erro){
         console.log("erro ao excluir filme!");
         console.log(erro);
@@ -48,5 +48,5 @@ conexão.query(deletar,[id],function(erro,resultado){
     }else{
         console.log("filme deletado com sucesso!")
     }
-        conexão.end();
+        conexao.end();
 });*/
