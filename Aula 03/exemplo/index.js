@@ -1,5 +1,5 @@
 const mysql = require("mysql2");
-const { addUncaughtExceptionCaptureCallback } = require("node:process");
+
 
 const readline = require("readline-sync");
 
@@ -39,7 +39,7 @@ function excluirAluno(){
         if(erro){
             console.log("Erro ao excluir aluno!");
             console.log(erro)
-        }else if(resultado.affectedRows ===0){
+        }else if(resultado.affectedRows === 0){
             console.log("Aluno nao encontrado");
         }else{
             console.log("Aluno excluido com sucesso!");
