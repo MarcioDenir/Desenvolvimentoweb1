@@ -21,7 +21,7 @@ function cadastrarCliente(){
         }else{
             console.log("Cliente cadastrado com sucesso!");
         }
-        menu()
+        menu();
     });
 
 }
