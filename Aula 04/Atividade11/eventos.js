@@ -51,7 +51,7 @@ function listarEventos(){
 
     conexao.query(sql,function(erro,evento){
         if(erro){
-            console.log("Erro ao buscar tarefas!");
+            console.log("Erro ao buscar tarefas!",erro);
 
         }else{
             console.log("===== EVENTOS =====");
@@ -66,6 +66,25 @@ function listarEventos(){
     });
 }
 
+function atualizarEventos(){
+    const nome = readline.question("informe o nome do evento a ser Atualizado: ");
+    const data_evento = readline.question("informe a data do evento atualizado: ");
+
+    const update = `UPDATE eventos SET nome =?, data_evento = ? WHERE id =?`;
+
+    const id = readline.questionInt("informe o id do evento que deseja atualziar: ");
+
+    conexao.query(update,[nome,data_evento,id],function(erro,resultado){
+        if(erro){
+            console.log("Erro ao atualizar show!");
+        }else if(resultado.affectedRows === 0) {
+            console.log("Show não encontrado!");
+        }else{
+            console.log("Show atualizado com sucesso!");
+        }
+        menu();
+    })
+}
 
 
 function menu(){
@@ -73,6 +92,7 @@ function menu(){
     console.log("1 - Cadastrar Eventos");
     console.log("2 - Excluir Eventos");
     console.log("3 - Listar Eventos");
+    console.log("4 - Atualizar Eventos");
     console.log("0 - Sair");
 
     const opcao = readline.questionInt("Escolha uma opção: ");
@@ -83,6 +103,8 @@ function menu(){
         excluirEventos();
     }else  if(opcao == 3){
         listarEventos();
+    }else  if(opcao == 4){
+        atualizarEventos();
     }else  if(opcao == 0){
         console.log("programa encerrado!")
         conexao.end();

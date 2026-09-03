@@ -1,6 +1,6 @@
 CREATE DATABASE atividades;
 
-USE atividades
+USE atividades;
 
 CREATE TABLE tarefas(
     id INT AUTO_INCREMENT PRIMARY KEY,

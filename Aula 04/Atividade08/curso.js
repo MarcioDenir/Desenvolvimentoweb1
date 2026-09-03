@@ -57,7 +57,7 @@ function listarCurso(){
         curso.forEach(function(curso){
             console.log(curso.id +" = "+
                 curso.nome +" = "+
-                curso.cargaHoraria
+                curso.cargaHoraria+" horas"
             );
         });
         }
@@ -65,6 +65,27 @@ function listarCurso(){
     });
 }
 
+//Atualizar
+
+function atualizarCurso(){
+    const nome = readline.question("Informe o nome do curso Atualizado!:");
+    const cargaHoraria = readline.questionInt("Informe a carga horaria Atualizada: ");
+
+    const update =`UPDATE cursos SET nome = ?, cargaHoraria = ? WHERE id =?`;
+
+    const id = readline.questionInt("informe o id do curso para realizar a atualização:");
+
+    conexao.query(update,[nome,cargaHoraria,id],function(erro,resultado){
+        if(erro){
+            console.log("Erro ao atualizar curso:");
+        }else if(resultado.affectedRows===0){
+            console.log("Curno nao encontrado para atualizar");
+        }else{
+            console.log("Curso atualizado com sucesso!");
+        }
+        menu();
+    })
+}
 
 
 function menu(){
@@ -72,6 +93,7 @@ function menu(){
     console.log("1 - Cadastrar Curso");
     console.log("2 - Excluir Curso");
     console.log("3 - Listar Curso");
+    console.log("4 - Atualizar Curso");
     console.log("0 - Sair");
 
     const opcao = readline.questionInt("Escolha uma opção: ");
@@ -82,6 +104,8 @@ function menu(){
         excluirCurso();
     }else  if(opcao == 3){
         listarCurso();
+    }else  if(opcao == 4){
+        atualizarCurso();
     }else  if(opcao == 0){
         console.log("programa encerrado!")
         conexao.end();

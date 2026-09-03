@@ -66,13 +66,32 @@ function listarVeiculo(){
     });
 }
 
+function atualizarVeiculo(){
+    const modelo = readline.question("informe o nome do veiculo a ser Atualizado: ");
+    const placa = readline.question("informe a placa do veiculo atualizado: ");
 
+    const update = `UPDATE veiculos SET modelo =?, placa = ? WHERE id =?`;
+
+    const id = readline.questionInt("informe o id do veiculo que deseja atualziar: ");
+
+    conexao.query(update,[modelo,placa,id],function(erro,resultado){
+        if(erro){
+            console.log("Erro ao atualizar veiculo!");
+        }else if(resultado.affectedRows === 0) {
+            console.log("Veiculo não encontrado!");
+        }else{
+            console.log("Veiculo atualizado com sucesso!");
+        }
+        menu();
+    })
+}
 
 function menu(){
     console.log("===== MENU =====");
     console.log("1 - Cadastrar Veiculo");
     console.log("2 - Excluir Veiculo");
     console.log("3 - Listar Veiculos");
+    console.log("4 - Atualizar Veiculos");
     console.log("0 - Sair");
 
     const opcao = readline.questionInt("Escolha uma opção: ");
@@ -83,6 +102,8 @@ function menu(){
         excluirVeiculo();
     }else  if(opcao == 3){
         listarVeiculo();
+    }else  if(opcao == 4){
+        atualizarVeiculo();
     }else  if(opcao == 0){
         console.log("programa encerrado!")
         conexao.end();
